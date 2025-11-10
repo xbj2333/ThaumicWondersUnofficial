@@ -3,6 +3,7 @@ package com.verdantartifice.thaumicwonders.common.tiles.devices;
 import com.verdantartifice.thaumicwonders.common.config.ConfigHandlerTW;
 import com.verdantartifice.thaumicwonders.common.items.ItemsTW;
 import com.verdantartifice.thaumicwonders.common.tiles.base.TileTW;
+import com.verdantartifice.thaumicwonders.common.tiles.base.TileTWInventory;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -21,7 +22,7 @@ import thaumcraft.common.lib.utils.EntityUtils;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TilePrimordialSiphon extends TileTW implements ITickable {
+public class TilePrimordialSiphon extends TileTWInventory implements ITickable {
     public ItemStackHandler stackHandler = new ItemStackHandler() {
         @Override
         public @NotNull ItemStack insertItem(int slot, @NotNull ItemStack stack, boolean simulate) {
@@ -30,6 +31,10 @@ public class TilePrimordialSiphon extends TileTW implements ITickable {
     };
     public int progress = 0;
     int counter = 0;
+
+    public TilePrimordialSiphon() {
+        super(1);
+    }
 
     @SuppressWarnings("ConstantConditions")
     @Override
